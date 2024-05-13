@@ -15,7 +15,7 @@ export class AppComponent {
     includeLetters: false,
     includeNumbers: false,
     includeSymbols: false,
-    length: 8,
+    length: 0,
   };
 
   handleToggle(type: any) {

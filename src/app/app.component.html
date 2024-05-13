@@ -1,7 +1,7 @@
 <h1>Password generator</h1>
 
 <label for="length">length</label>
-<input [defaultValue]="pswConfigs.length" [min]="5" [max]="20" type="number" (input)="setLength($event)">
+<input [value]="pswConfigs.length === 0 ? 5 : pswConfigs.length" [min]="5" [max]="20" type="number" (input)="setLength($event)">
 <br>
 
 
@@ -20,7 +20,7 @@
 
 
 
-<button (click)="onBtnClick()">GENERATE!</button>
+<button (click)="onBtnClick()" [disabled]="!pswConfigs.length">GENERATE!</button>
 <br>
 <label for="res">Ur generated psw:</label>
 <input type="text" [value]="password"> 
