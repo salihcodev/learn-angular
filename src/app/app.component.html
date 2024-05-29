@@ -1,26 +1,9 @@
-<h1>Password generator</h1>
-
-<label for="length">length</label>
-<input [defaultValue]="pswConfigs.length" [min]="5" [max]="20" type="number" (input)="setLength($event)">
-<br>
-
-
-<label for="letters">letters</label>
-<input type="checkbox" name="includeLetters" id="includeLetters" (change)="handleToggle('includeLetters')">
-<br>
-
-<label for="symbols">numbers</label>
-<input type="checkbox" name="includeNumbers" id="includeNumbers" (change)="handleToggle('includeNumbers')">
-<br>
-
-<label for="numbers">symbols</label>
-<input type="checkbox" name="includeSymbols" id="includeSymbols" (change)="handleToggle('includeSymbols')">
-<br>
-
-
-
-
-<button (click)="onBtnClick()">GENERATE!</button>
-<br>
-<label for="res">Ur generated psw:</label>
-<input type="text" [value]="password"> 
+<h1>the main title</h1>
+<div class="cards-container">
+  <app-card
+    *ngFor="let item of list"
+    [title]="item.title"
+    [img]="item.img"
+    [desc]="item.desc"
+  ></app-card>
+</div>
