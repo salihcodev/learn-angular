@@ -1,9 +1,42 @@
-<h1>the main title</h1>
-<div class="cards-container">
-  <app-card
-    *ngFor="let item of list"
-    [title]="item.title"
-    [img]="item.img"
-    [desc]="item.desc"
-  ></app-card>
+<!-- typing-challenge.component.html -->
+<div
+  class="card-container is-flex is-justify-content-center is-align-items-center"
+>
+  <div class="card">
+    <header class="card-header">
+      <p
+        class="card-header-title has-text-centered is-size-3 has-text-warning-light-dark"
+      >
+        Typing Challenge
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content has-text-centered">
+        <p class="">
+          <strong
+            [class]="afterCompare(letter, entredText[i])"
+            *ngFor="let letter of randomtext.split(''); let i = index"
+            >{{ letter }}</strong
+          >
+        </p>
+
+        <div class="field">
+          <div class="control">
+            <input
+              class="input is-normal has-text-grey-darker"
+              type="text"
+              placeholder="Start typing..."
+              (input)="onInput($event)"
+            />
+          </div>
+        </div>
+        <div
+          *ngIf="randomtext === entredText"
+          class="notification is-success has-text-centered"
+        >
+          Success!
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
