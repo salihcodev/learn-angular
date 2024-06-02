@@ -1,29 +1,26 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { faker } from '@faker-js/faker';
+import { LodashPipe } from './lodash.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
+  imports: [CommonModule, RouterOutlet, LodashPipe],
 })
 export class AppComponent {
-  randomtext = faker.lorem.sentence();
-  entredText = ``;
+  inputs: Record<'name' | 'date' | 'amount' | 'height', string> = {
+    name: ``,
+    date: ``,
+    amount: ``,
+    height: ``,
+  };
 
-  onInput(value: Event) {
-    this.entredText = (value?.target as HTMLInputElement).value;
-  }
+  onInputHandle(e: Event, where: 'name' | 'date' | 'amount' | 'height') {
+    const val = (e.target as HTMLInputElement).value;
 
-  afterCompare(currLetter: string, randLetter: string) {
-    if (!randLetter) {
-      return `pending`;
-    }
-
-    return currLetter === randLetter ? `correct` : `wrong`;
+    this.inputs[where] = val;
   }
 }

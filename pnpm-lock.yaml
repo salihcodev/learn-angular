@@ -29,12 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.3.0
     version: 17.3.10(@angular/common@17.3.10)(@angular/core@17.3.10)(@angular/platform-browser@17.3.10)(rxjs@7.8.1)
-  bulma:
-    specifier: ^1.0.1
-    version: 1.0.1
-  faker:
-    specifier: ^6.6.6
-    version: 6.6.6
+  bootstrap:
+    specifier: ^5.3.3
+    version: 5.3.3(@popperjs/core@2.11.8)
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
@@ -55,9 +52,6 @@ devDependencies:
   '@angular/compiler-cli':
     specifier: ^17.3.0
     version: 17.3.10(@angular/compiler@17.3.10)(typescript@5.4.5)
-  '@faker-js/faker':
-    specifier: ^8.4.1
-    version: 8.4.1
   '@types/jasmine':
     specifier: ~5.1.0
     version: 5.1.4
@@ -2154,11 +2148,6 @@ packages:
     dev: true
     optional: true
 
-  /@faker-js/faker@8.4.1:
-    resolution: {integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
-    dev: true
-
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -2366,6 +2355,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@popperjs/core@2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
 
   /@rollup/rollup-android-arm-eabi@4.18.0:
     resolution: {integrity: sha512-Tya6xypR10giZV1XzxmH5wr25VcZSncG0pZIjfePT0OVBvqNEurzValetGNarVrGiq66EBVAFn15iYX4w6FKgQ==}
@@ -2589,7 +2582,7 @@ packages:
   /@types/connect-history-api-fallback@1.5.4:
     resolution: {integrity: sha512-n6Cr2xS1h4uAulPRdlw6Jl6s1oG8KrVilPN2yUITEs+K48EzMJJ3W1xy8K5eWuFvjp3R74AOIGSmp2UfBJ8HFw==}
     dependencies:
-      '@types/express-serve-static-core': 4.19.2
+      '@types/express-serve-static-core': 4.19.3
       '@types/node': 20.12.13
     dev: true
 
@@ -2627,8 +2620,8 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@types/express-serve-static-core@4.19.2:
-    resolution: {integrity: sha512-dPSEQElyVJ97BuGduAqQjpBocZWAs0GR94z+ptL7JXQJeJdHw2WBG3EWdFrK36b8Q6j8P4cXOMhgUoi0IIfIsg==}
+  /@types/express-serve-static-core@4.19.3:
+    resolution: {integrity: sha512-KOzM7MhcBFlmnlr/fzISFF5vGWVSvN6fTd4T+ExOt08bA/dA5kpSzY52nMsI1KDFmUREpJelPYyuslLRSjjgCg==}
     dependencies:
       '@types/node': 20.12.13
       '@types/qs': 6.9.15
@@ -2640,7 +2633,7 @@ packages:
     resolution: {integrity: sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==}
     dependencies:
       '@types/body-parser': 1.19.5
-      '@types/express-serve-static-core': 4.19.2
+      '@types/express-serve-static-core': 4.19.3
       '@types/qs': 6.9.15
       '@types/serve-static': 1.15.7
     dev: true
@@ -3181,6 +3174,14 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
+  /bootstrap@5.3.3(@popperjs/core@2.11.8):
+    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
+    dependencies:
+      '@popperjs/core': 2.11.8
+    dev: false
+
   /brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
     dependencies:
@@ -3207,7 +3208,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001625
-      electron-to-chromium: 1.4.786
+      electron-to-chromium: 1.4.787
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
     dev: true
@@ -3222,10 +3223,6 @@ packages:
       base64-js: 1.5.1
       ieee754: 1.2.1
     dev: true
-
-  /bulma@1.0.1:
-    resolution: {integrity: sha512-+xv/BIAEQakHkR0QVz+s+RjNqfC53Mx9ZYexyaFNFo9wx5i76HXArNdwW7bccyJxa5mgV/T5DcVGqsAB19nBJQ==}
-    dev: false
 
   /bytes@3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
@@ -3754,8 +3751,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.786:
-    resolution: {integrity: sha512-i/A2UB0sxYViMN0M2zIotQFRIOt1jLuVXudACHBDiJ5gGuAUzf/crZxwlBTdA0O52Hy4CNtTzS7AKRAacs/08Q==}
+  /electron-to-chromium@1.4.787:
+    resolution: {integrity: sha512-d0EFmtLPjctczO3LogReyM2pbBiiZbnsKnGF+cdZhsYzHm/A0GV7W94kqzLD8SN4O3f3iHlgLUChqghgyznvCQ==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -4068,10 +4065,6 @@ packages:
       iconv-lite: 0.4.24
       tmp: 0.0.33
     dev: true
-
-  /faker@6.6.6:
-    resolution: {integrity: sha512-9tCqYEDHI5RYFQigXFwF1hnCwcWCOJl/hmll0lr5D2Ljjb0o4wphb69wikeJDz5qCEzXCoPvG6ss5SDP6IfOdg==}
-    dev: false
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}

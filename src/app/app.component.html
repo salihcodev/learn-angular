@@ -1,42 +1,75 @@
-<!-- typing-challenge.component.html -->
-<div
-  class="card-container is-flex is-justify-content-center is-align-items-center"
->
-  <div class="card">
-    <header class="card-header">
-      <p
-        class="card-header-title has-text-centered is-size-3 has-text-warning-light-dark"
-      >
-        Typing Challenge
-      </p>
-    </header>
-    <div class="card-content">
-      <div class="content has-text-centered">
-        <p class="">
-          <strong
-            [class]="afterCompare(letter, entredText[i])"
-            *ngFor="let letter of randomtext.split(''); let i = index"
-            >{{ letter }}</strong
-          >
-        </p>
-
-        <div class="field">
-          <div class="control">
-            <input
-              class="input is-normal has-text-grey-darker"
-              type="text"
-              placeholder="Start typing..."
-              (input)="onInput($event)"
-            />
-          </div>
+<div class="container mt-5">
+  <h3>Payment Form</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group mb-4">
+          <label for="receiverName">Receiver Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="receiverName"
+            placeholder="Receiver Name"
+            name="receiverName"
+            (input)="onInputHandle($event, 'name')"
+          />
         </div>
-        <div
-          *ngIf="randomtext === entredText"
-          class="notification is-success has-text-centered"
-        >
-          Success!
+        <div class="form-group mb-4">
+          <label for="paymentDate">Payment Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="paymentDate"
+            placeholder="Payment Date"
+            name="paymentDate"
+            (input)="onInputHandle($event, 'date')"
+          />
         </div>
+        <div class="form-group mb-4">
+          <label for="amount">Amount</label>
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            placeholder="Amount"
+            name="amount"
+            (input)="onInputHandle($event, 'amount')"
+          />
+        </div>
+        <div class="form-group mb-4">
+          <label for="amount">Height</label>
+          <input
+            type="text"
+            class="form-control"
+            id="height"
+            placeholder="Height"
+            name="height"
+            (input)="onInputHandle($event, 'height')"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group mb-4">
+        <label>Receiver Name</label>
+        <p>{{ inputs.name | lodash }}</p>
+      </div>
+      <div class="form-group mb-4">
+        <label>Payment Date</label>
+        <p>{{ inputs.date | date }}</p>
+      </div>
+      <div class="form-group mb-4">
+        <label>Amount</label>
+        <p>{{ inputs.amount | currency : "USD" }}</p>
+      </div>
+      <div class="form-group mb-4">
+        <label>Payment Date</label>
+        <p>{{ inputs.height | number : "1.0-3" }}</p>
       </div>
     </div>
+  </div>
+  <div class="form-group mb-4">
+    <label>Order Summary</label>
+    <p>{{ inputs | json }}</p>
   </div>
 </div>
