@@ -1,75 +1,68 @@
-<div class="container mt-5">
-  <h3>Payment Form</h3>
-  <div class="row">
-    <div class="col-md-6">
-      <form>
-        <div class="form-group mb-4">
-          <label for="receiverName">Receiver Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="receiverName"
-            placeholder="Receiver Name"
-            name="receiverName"
-            (input)="onInputHandle($event, 'name')"
-          />
+<section class="d-flex flex-column align-items-center p-5">
+  <div class="content-viewer text-center mb-5">
+    <div class="card">
+      <img [src]="posts[currPage].image" [alt]="posts[currPage].title" />
+      <div class="card-body">
+        <h5 appCustomDirective [background]="'#eee'" class="card-title">
+          {{ posts[currPage].title }}
+        </h5>
+
+        <div>
+          <span
+            class="badge rounded-pill text-bg-secondary m-1"
+            *ngFor="let tag of posts[currPage].tags"
+            >{{ tag }}</span
+          >
         </div>
-        <div class="form-group mb-4">
-          <label for="paymentDate">Payment Date</label>
-          <input
-            type="date"
-            class="form-control"
-            id="paymentDate"
-            placeholder="Payment Date"
-            name="paymentDate"
-            (input)="onInputHandle($event, 'date')"
-          />
-        </div>
-        <div class="form-group mb-4">
-          <label for="amount">Amount</label>
-          <input
-            type="text"
-            class="form-control"
-            id="amount"
-            placeholder="Amount"
-            name="amount"
-            (input)="onInputHandle($event, 'amount')"
-          />
-        </div>
-        <div class="form-group mb-4">
-          <label for="amount">Height</label>
-          <input
-            type="text"
-            class="form-control"
-            id="height"
-            placeholder="Height"
-            name="height"
-            (input)="onInputHandle($event, 'height')"
-          />
-        </div>
-      </form>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group mb-4">
-        <label>Receiver Name</label>
-        <p>{{ inputs.name | lodash }}</p>
-      </div>
-      <div class="form-group mb-4">
-        <label>Payment Date</label>
-        <p>{{ inputs.date | date }}</p>
-      </div>
-      <div class="form-group mb-4">
-        <label>Amount</label>
-        <p>{{ inputs.amount | currency : "USD" }}</p>
-      </div>
-      <div class="form-group mb-4">
-        <label>Payment Date</label>
-        <p>{{ inputs.height | number : "1.0-3" }}</p>
+
+        <p class="card-text">{{ posts[currPage].description }}</p>
       </div>
     </div>
   </div>
-  <div class="form-group mb-4">
-    <label>Order Summary</label>
-    <p>{{ inputs | json }}</p>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li
+          class="page-item"
+          [ngClass]="{ disabled: currPage === 0 }"
+          (click)="currPage = currPage - 1"
+        >
+          <a class="page-link" href="#">Previous</a>
+        </li>
+        <!-- -->
+
+        <ng-container
+          *ngFor="let post of posts; let i = index"
+          class="page-item"
+        >
+          <li
+            class="page-item"
+            *ngIf="checkIndexs(i)"
+            [ngClass]="{ active: currPage === i }"
+          >
+            <a class="page-link" href="#" (click)="currPage = i">{{ i + 1 }}</a>
+          </li>
+        </ng-container>
+
+        <!--  -->
+        <li
+          class="page-item"
+          [ngClass]="{ disabled: currPage === posts.length - 1 }"
+        >
+          <a class="page-link" href="#" (click)="currPage = currPage + 1"
+            >Next</a
+          >
+        </li>
+      </ul>
+    </nav>
   </div>
-</div>
+
+  <div [ngSwitch]="currPage">
+    <div *ngSwitchCase="2"><strong>even</strong></div>
+    <div *ngSwitchCase="3"><strong>ood</strong></div>
+    <div *ngSwitchDefault><strong>not figured yet</strong></div>
+  </div>
+
+  <!-- just a custom structure directive. -->
+  <span *looperDirective="3; let i = index"> #{{ i }} </span>
+</section>
