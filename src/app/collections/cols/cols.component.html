@@ -1,0 +1,29 @@
+<app-divider>Table Comp.</app-divider>
+
+<app-table [rows]="rows" [props]="props" classes="striped celled"></app-table>
+
+<app-divider>Tabs Menu</app-divider>
+<div class="ui grid">
+  <div class="four wide column">
+    <app-tabs>
+      <a
+        class="item"
+        routerLink="./"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Biography</a
+      >
+      <a class="item" routerLink="companies" routerLinkActive="active"
+        >Companies</a
+      >
+      <a class="item" routerLink="partners" routerLinkActive="active"
+        >Partners</a
+      >
+    </app-tabs>
+  </div>
+  <div class="twelve wide stretched column">
+    <div class="ui segment">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

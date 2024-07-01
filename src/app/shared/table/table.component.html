@@ -1,0 +1,12 @@
+<table class="ui single line table" [ngClass]="classNames">
+  <thead>
+    <tr>
+      <th *ngFor="let prop of props">{{ prop.label }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+      <td *ngFor="let prop of props">{{ row[prop.key] }}</td>
+    </tr>
+  </tbody>
+</table>

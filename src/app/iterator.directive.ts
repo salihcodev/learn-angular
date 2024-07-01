@@ -1,20 +1,19 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[looperDirective]',
+  selector: '[appIterator]',
   standalone: true,
 })
-export class LooperDirective {
+export class IteratorDirective {
   constructor(
     private viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<any>
   ) {}
 
-  @Input(`looperDirective`) set render(times: number) {
+  @Input(`appIterator`) set render(times: number) {
     this.viewContainer.clear();
-
     for (let i = 0; i < times; i++) {
-      this.viewContainer.createEmbeddedView(this.templateRef, { index: i });
+      this.viewContainer.createEmbeddedView(this.templateRef, {});
     }
   }
 }
