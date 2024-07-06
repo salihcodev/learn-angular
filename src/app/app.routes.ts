@@ -22,6 +22,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import(`./views/views.module`).then((m) => m.ViewsModule),
   },
+  {
+    path: `mods`,
+    loadChildren: () => import(`./mod/mod.module`).then((m) => m.ModModule),
+  },
+
   { path: '**', component: NotFoundComponent },
 ];
 
