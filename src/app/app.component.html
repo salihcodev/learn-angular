@@ -1,21 +1,4 @@
-<div class="ui container">
-  <div class="ui secondary pointing menu">
-    <a
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      routerLink="/"
-      class="item"
-      >Home</a
-    >
-    <a routerLinkActive="active" routerLink="/eles" class="item">Elements</a>
-    <a routerLinkActive="active" routerLink="/views" class="item">Views</a>
-    <a routerLinkActive="active" routerLink="/collections" class="item"
-      >Collections</a
-    >
-    <a routerLinkActive="active" routerLink="/mods" class="item">MODs</a>
-  </div>
-
-  <div class="ui segment">
-    <router-outlet />
-  </div>
+<div class="ui segment">
+  <app-search-bar (search)="onTerm($event)"></app-search-bar>
+  <app-results-list [isLoading]="isLoading" [list]="results"></app-results-list>
 </div>

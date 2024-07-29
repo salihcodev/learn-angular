@@ -1,0 +1,11 @@
+<form (submit)="onFormSubmit($event)">
+  <div class="ui input">
+    <input
+      type="search"
+      name="search"
+      id="searchInput"
+      #searchInput
+      (input)="term = searchInput.value"
+    />
+  </div>
+</form>

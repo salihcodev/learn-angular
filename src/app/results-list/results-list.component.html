@@ -1,0 +1,30 @@
+<h5 class="">The results list, No time to implement :)</h5>
+<div *ngIf="isLoading">
+  <div class="ui active centered inline loader"></div>
+</div>
+<table class="ui celled table" *ngIf="list.length > 0">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>wordcount</th>
+      <th>snippet</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of list">
+      <td>
+        <strong>
+          <a
+            target="_blank onopener noreferer"
+            [href]="'https://en.wikipedia.org?curid=' + row['pageid']"
+            >{{ row["title"] }}</a
+          >
+        </strong>
+      </td>
+      <td>{{ row["wordcount"] }}</td>
+      <td [innerHTML]="row['snippet']"></td>
+      <td>{{ row["timestamp"] | date }}</td>
+    </tr>
+  </tbody>
+</table>
